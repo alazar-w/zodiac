@@ -1,0 +1,121 @@
+﻿<Window x:Class="TabMenu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:TabMenu"
+        mc:Ignorable="d" Height="650" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <StackPanel Background="WhiteSmoke">
+        <Grid Height="40">
+           
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20 0">
+                <Button Content="Edit" Height="25" FontFamily="Arial Narrow" FontWeight="Bold" Cursor="IBeam" x:Name="editButton" Click="editButton_Click"/>
+
+                <Button  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" x:Name="powerButton" Click="powerButton_Click">
+                    <materialDesign:PackIcon Kind="Power" Foreground="#FFA2A2A2" Width="25" Height="25" />
+                </Button>
+
+            </StackPanel>
+        </Grid>
+        <!--kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk-->
+        <Grid Height="100">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 0">
+                <Button Uid="0" Width="150" Content="HOME" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
+                <Button Uid="1" Width="150" Content="ABOUT ZODIAC" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF2196F3" Click="Button_Click"/>
+              
+                <TextBox  HorizontalAlignment="Right" Width="340" Margin="250,0,0,0" x:Name="searchTextBox"  TextChanged="searchBox_TextChanged"/>
+
+            </StackPanel>
+            <Grid x:Name="GridCursor" Width="150" Height="5" Background="#FF2196F3" HorizontalAlignment="Left" Margin="10 0"/>
+        </Grid>
+
+        <Grid x:Name="GridMain" Height="510" Background="White">
+
+            <StackPanel VerticalAlignment="Top" Orientation="Vertical" HorizontalAlignment="Left" Background="White" x:Name="datePicker" >
+                <TextBlock Text="SELECT DATE" Background="White" Width="150" FontSize="20" FontWeight="Bold" Margin="10,30,0,0" />
+                <DatePicker  Background="Silver" Width="150" Foreground="Black" FontWeight="Bold" FontSize="20" Margin="10,15,0,15" x:Name="myCalander" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+                
+                <Button Content="RESET" x:Name="checkButton" Margin="10,0,0,0" Click="checkButton_Click"/>
+            </StackPanel>
+
+            <StackPanel  x:Name="aboutZodiac" Visibility="Hidden" Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Margin="0,0,260,0" >
+                    <Button Uid="0" Content="Aries" Margin="20,10,0,10" HorizontalAlignment="Left" Width="70" Click="Zodiac_day_handler"/>
+                    <Button Uid="1" Content="Taurus" Margin="20,0,0,10" HorizontalAlignment="Left" Click="Zodiac_day_handler"/>
+                    <Button Uid="2" Content="Gemini" Margin="20,0,0,10" HorizontalAlignment="Left" Click="Zodiac_day_handler"/>
+                    <Button Uid="3" Content="Cancer" Margin="20,0,0,10" HorizontalAlignment="Left" Click="Zodiac_day_handler"/>
+                    <Button Uid="4" Content="Leo" Margin="20,0,0,10" HorizontalAlignment="Left" Click="Zodiac_day_handler"/>
+                    <Button Uid="5" Content="Virgo" Margin="20,0,0,10" HorizontalAlignment="Left" Click="Zodiac_day_handler"/>
+                    <Button Uid="6" Content="Libra" Margin="20,0,0,10" HorizontalAlignment="Left" Click="Zodiac_day_handler"/>
+                    <Button Uid="7" Content="Scorpio" Margin="20,0,0,10" HorizontalAlignment="Left" Click="Zodiac_day_handler"/>
+                    <Button Uid="8" Content="Sagittarius" Margin="20,0,0,10" HorizontalAlignment="Left" Click="Zodiac_day_handler"/>
+                    <Button Uid="9" Content="Capricorn" Margin="20,0,0,10" HorizontalAlignment="Left" Click="Zodiac_day_handler"/>
+                    <Button Uid="10" Content="Aquarius" Margin="20,0,0,10" HorizontalAlignment="Left" Click="Zodiac_day_handler"/>
+                    <Button Uid="11" Content="Pisces" Margin="20,0,0,10" HorizontalAlignment="Left" Click="Zodiac_day_handler"/>
+                    
+
+                </StackPanel>
+
+
+
+                <StackPanel Orientation="Vertical" x:Name="starter_zoidac_Image">
+                    <TextBlock  FontSize="35" Margin="0,0,0,5">Get Detaild Info About Each Signs</TextBlock>
+                    <Image Height="400" Width="600" Source="E:\class\3rd\c#\c#workspace\Zodiac\Zodiac\img\zodiac.png"></Image>
+                </StackPanel>
+            </StackPanel>
+
+            
+            <StackPanel Visibility="Visible" x:Name="datePickerDescription"  HorizontalAlignment="Center" Margin="400 20 0 0">
+                <TextBlock FontStyle="Italic" HorizontalAlignment="Center" Foreground="White"  FontSize="50" Name="DateTextBlock" Text="Astrology" Margin="0 20 0 0 "/>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Hidden" x:Name="zodiacDatePickerListView" Margin="-65 -60 30 0"  SelectionChanged="zodiacInfoListView_SelectionChanged">
+
+                    <!--defining the template for each and every one of the item -->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+
+                                <TextBlock  Text="{Binding Title}"   FontSize="20" FontWeight="Bold" Foreground="Black" x:Name="titleTextBox"  />
+                                <TextBlock Text="{Binding Description}"  FontSize="15" Foreground="DodgerBlue" x:Name="DescriptionTextBox" />
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </StackPanel>
+
+
+
+
+            <StackPanel x:Name="detailed_zodiac_info" Visibility="Hidden" Orientation="Vertical">
+                <TextBlock  x:Name="zodiacInfoTextBlock" HorizontalAlignment="Center"/>
+                <ListView  ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" x:Name="zodiacInfoListView" Margin="250 10 20 0" Height="250" SelectionChanged="zodiacInfoListView_SelectionChanged">
+
+                    <!--defining the template for each and every one of the item -->
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+
+                                <TextBlock  Text="{Binding Title}"   FontSize="20" FontWeight="Bold" Foreground="Black" x:Name="titleTextBox"  TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Description}"  FontSize="15" Foreground="DodgerBlue" x:Name="DescriptionTextBox" TextWrapping="Wrap"/>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+
+
+
+                <TextBlock FontSize="15" Text="RELATED IMAGE" Margin="0,10,0,15" HorizontalAlignment="Center" FontWeight="Bold"/>
+                <Image Height="150" Width="500" x:Name="ZoidacInfoImage"/>
+            </StackPanel>
+        </Grid>
+
+      
+
+
+
+    </StackPanel>
+</Window>

@@ -1,0 +1,36 @@
+﻿<Window x:Class="TabMenu.NewEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TabMenu"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="NewEditWindow" Height="450" Width="800" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    
+    <StackPanel Background="WhiteSmoke" Orientation="Vertical">
+    <Grid Height="40">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20 0">
+                <Button  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" x:Name="editPowerButton" Click="editPowerButton_Click">
+                    <materialDesign:PackIcon Kind="Power" Foreground="#FFA2A2A2" Width="25" Height="25" />
+                </Button>
+
+            </StackPanel>
+        </Grid>
+        <Grid Background="White">
+            <StackPanel>
+                <TextBlock Text="Try To Make A Little chang..." Margin="0 20 0 0" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+        <Grid>
+            <StackPanel Margin="25" Background="White">
+                <TextBox x:Name="editNameTextBox" Margin="0,0,0,5" Text="Title" TextWrapping="Wrap" AcceptsReturn="True" />
+                <TextBox x:Name="editDescriptionTextBox"  Margin="0,0,0,5" Text="Description" TextWrapping="Wrap" AcceptsReturn="True"/>
+            </StackPanel>
+        </Grid>
+        <Grid>
+            <Button Content="Save" x:Name="saveButton" Click="saveButton_Click" Width="200" Margin="25 10 0 0" HorizontalAlignment="Left"/>
+
+        </Grid>
+    </StackPanel>
+</Window>

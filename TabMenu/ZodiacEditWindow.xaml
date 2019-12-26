@@ -1,0 +1,33 @@
+﻿<Window x:Class="TabMenu.ZodiacEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TabMenu"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ZodiacEditWindow" Height="450" Width="800" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <StackPanel Background="WhiteSmoke">
+        
+        <Grid Height="40">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20 0">
+                <Button  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" x:Name="editPowerButton" Click="editPowerButton_Click">
+                    <materialDesign:PackIcon Kind="Power" Foreground="#FFA2A2A2" Width="25" Height="25" />
+                </Button>
+
+            </StackPanel>
+        </Grid>
+        <Grid>
+            <StackPanel Margin="10">
+                <TextBox x:Name="zodiacEditNameTextBox" Margin="0,0,0,5" TextWrapping="Wrap" AcceptsReturn="True"/>
+                <TextBox x:Name="zodiacDescriptionTextBox"  Margin="0,0,0,5" TextWrapping="Wrap" AcceptsReturn="True"/>
+                <Button Content="Update" x:Name="updateButton" Click="updateButton_Click" Margin="0,0,0,5" Width="240"/>
+                <Button Content="Ignore" x:Name="cancleButoon" Click="cancleButoon_Click" Margin="0 0 0 5" Background="Green" Width="240"/>
+                <Button Content="Delete" x:Name="deleteButton" Click="deleteButton_Click"  Background="Red" Width="240"/>
+
+
+            </StackPanel>
+        </Grid>
+        
+    </StackPanel>
+</Window>
